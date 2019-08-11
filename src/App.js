@@ -15,13 +15,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      toDoArray: toDo
+      toDoArray: toDo,
+      test: "test"
+
     };
   }
+
+  updateCheck = id => {
+    this.setState(previousState => {
+      const updatedState = previousState.toDoArray.map(elem => {
+        if (elem.id === id) {
+          elem.completed = !elem.completed;
+        }
+        return elem;
+      });
+      return { toDoArray: updatedState };
+    });
+  };
+
   render() {
+    console.log("state", this.state);
     return (
       <div className="App">
-        <TodoItem toDoList={this.state.toDoArray} />
+        <TodoItem
+          toDoList={this.state.toDoArray}
+          updateCheck={this.updateCheck}
+        />
       </div>
     );
   }

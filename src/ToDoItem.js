@@ -23,14 +23,17 @@ class ToDoItem extends Component {
   }
 
   render() {
-    // console.log(this.props.toDoList)
-    const { toDoList } = this.props;
+    const { toDoList, updateCheck } = this.props;
     return (
       <div className="todo-list">
         {toDoList.map(({ id, completed, text }) => {
           return (
             <div key={id} className="todo-item">
-              <input type="checkbox" checked={completed} />
+              <input
+                type="checkbox"
+                onChange={() => updateCheck(id)}
+                checked={completed}
+              />
               {text}
             </div>
           );
