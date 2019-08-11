@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import toDo from "./data";
 
 // const ToDoItem = () => {
 //   console.log(toDo);
@@ -20,14 +19,15 @@ import toDo from "./data";
 class ToDoItem extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { name: "Hardik" };
   }
 
   render() {
-    console.log()
+    // console.log(this.props.toDoList)
+    const { toDoList } = this.props;
     return (
       <div className="todo-list">
-        {toDo.map(({ id, completed, text }) => {
+        {toDoList.map(({ id, completed, text }) => {
           return (
             <div key={id} className="todo-item">
               <input type="checkbox" checked={completed} />
