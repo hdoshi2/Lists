@@ -34,7 +34,7 @@ class ToDoItem extends Component {
                 onChange={() => updateCheck(id)}
                 checked={completed}
               />
-              {text}
+              {completed ? <div className="completed">{text}</div> : <div>{text}</div>}
             </div>
           );
         })}
